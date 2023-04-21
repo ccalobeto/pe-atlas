@@ -26,18 +26,18 @@ Removes information by reducing the precision of each coordinate. Set to `1e5` b
 
 ## File Reference
 
-<a href="#districts-100k.json" name="districts-100k.json">#</a> <b>districts-100k.json</b> · [Download](https://cdn.jsdelivr.net/npm/pe-atlas@1.0.0/districts-100k.json "Source")
+<a href="#districts-100k.json" name="districts-100k.json">#</a> <b>districts-100k.json</b> · [Download](https://cdn.jsdelivr.net/npm/pe-atlas@1.0.1/districts-100k.json "Source")
 
 A [TopoJSON file](https://github.com/topojson/topojson-specification/blob/master/README.md#21-topology-objects) containing three objects: districts, provinces and departments corresponding to [Perú cartographic boundary shapefiles](https://www.geogpsperu.com/).
 The geometry is quantized and simplified, but not projected.
 
 
-<a href="#provinces-100k.json" name="provinces-100k.json">#</a> <b>provinces-100k.json</b> · [Download](https://cdn.jsdelivr.net/npm/pe-atlas@1.0.0/provinces-100k.json "Source")
+<a href="#provinces-100k.json" name="provinces-100k.json">#</a> <b>provinces-100k.json</b> · [Download](https://cdn.jsdelivr.net/npm/pe-atlas@1.0.1/provinces-100k.json "Source")
 
 A [TopoJSON file](https://github.com/topojson/topojson-specification/blob/master/README.md#21-topology-objects) containing the geometry collections <i>provinces</i> and <i>departments</i>. The geometry is quantized and simplified, but not projected. 
 
 
-<a href="#departments-100k.json" name="departments-10k.json">#</a> <b>departments-100k.json</b> · [Download](https://cdn.jsdelivr.net/npm/pe-atlas@1.0.0/departments-100k.json "Source")
+<a href="#departments-100k.json" name="departments-10k.json">#</a> <b>departments-100k.json</b> · [Download](https://cdn.jsdelivr.net/npm/pe-atlas@1.0.1/departments-100k.json "Source")
 
 A [TopoJSON file](https://github.com/topojson/topojson-specification/blob/master/README.md#21-topology-objects) containing the geometry collection <i>departments</i>. The geometry is quantized and simplified, but not projected. 
 
