@@ -29,14 +29,15 @@ geo2topo -q 1e5 -n districts=<( \
   | topomerge provinces=districts -k 'd.id.slice(0, 4)' \
   | topomerge departments=districts -k 'd.id.slice(0, 2)' \
   | node ./properties.js \
-  > counties-100k.json
+  > districts-100k.json
 
 geo2topo -q 1e5 -n provinces=<( \
     shp2json -n build/PROVINCIAS_inei_geogpsperu_suyopomalia.shp \
       | ndjson-filter '!/000$/.test(d.properties.IDPROV)' \
       | ndjson-map '(d.id = d.properties.IDPROV, d.properties = {name: d.properties.NOMBPROV}, d)') \
   | toposimplify -f -s 1e-7 \
-  | topomerge departments=provinces \
+  | topomerge departments=provinces -k 'd.id.slice(0, 2)'\
+  | node ./propertiesDep.js \
   > provinces-100k.json
 
 geo2topo -q 1e5 -n departments=<( \

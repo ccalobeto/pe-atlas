@@ -6,15 +6,16 @@
   "keywords": [
     "topojson",
     "geojson",
-    "shapefile"
+    "shapefile",
+    "peru"
   ],
   "author": {
     "name": "Carlos León",
-    "url": "https://bost.ocks.org/mike"
+    "url": "https://github.com/ccalobeto/pe-atlas.git"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/topojson/us-atlas.git"
+    "url": "https://github.com/ccalobeto/pe-atlas.git"
   },
   "files": [
     "*-100k.json"
@@ -24,15 +25,12 @@
     "postpublish": "git push && git push --tags"
   },
   "devDependencies": {
-    "d3-dsv": "^1.0.3",
-    "d3-geo-projection": "^2.0.0",
-    "ndjson-cli": "^0.3.0",
-    "shapefile": "^0.6.1",
-    "topojson-client": "^3.0.0",
-    "topojson-server": "^3.0.0",
-    "topojson-simplify": "^3.0.0"
-  },
-  "dependencies": {
-    "us-atlas": "^3.0.0"
+    "d3-dsv": "^3.0.1",
+    "d3-geo-projection": "^4.0.0",
+    "ndjson-cli": "^0.3.1",
+    "shapefile": "^0.6.6",
+    "topojson-client": "^3.1.0",
+    "topojson-server": "^3.0.1",
+    "topojson-simplify": "^3.0.3"
   }
 }
