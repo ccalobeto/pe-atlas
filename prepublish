@@ -1,0 +1,49 @@
+#!/bin/bash
+
+rm -rvf *-100k.json
+mkdir -p build
+
+if [ ! -f build/DISTRITOS_inei_geogpsperu_suyopomalia.shp ]; then
+#  curl -o build/cb_2017_us_county_5m.zip 'https://www2.census.gov/geo/tiger/GENZ2017/shp/cb_2017_us_county_5m.zip'
+  unzip -od build build/DISTRITOS_inei_geogpsperu_suyopomalia.zip DISTRITOS_inei_geogpsperu_suyopomalia.shp DISTRITOS_inei_geogpsperu_suyopomalia.dbf
+  chmod a-x build/DISTRITOS_inei_geogpsperu_suyopomalia.*
+fi
+
+if [ ! -f build/PROVINCIAS_inei_geogpsperu_suyopomalia.shp ]; then
+#  curl -o build/cb_2017_us_state_5m.zip 'https://www2.census.gov/geo/tiger/GENZ2017/shp/cb_2017_us_state_5m.zip'
+  unzip -od build build/PROVINCIAS_inei_geogpsperu_suyopomalia.zip PROVINCIAS_inei_geogpsperu_suyopomalia.shp PROVINCIAS_inei_geogpsperu_suyopomalia.dbf
+  chmod a-x build/PROVINCIAS_inei_geogpsperu_suyopomalia.*
+fi
+
+if [ ! -f build/DEPARTAMENTOS_inei_geogpsperu_suyopomalia.shp ]; then
+#  curl -o build/cb_2017_us_nation_5m.zip 'https://www2.census.gov/geo/tiger/GENZ2017/shp/cb_2017_us_nation_5m.zip'
+  unzip -od build build/DEPARTAMENTOS_inei_geogpsperu_suyopomalia.zip DEPARTAMENTOS_inei_geogpsperu_suyopomalia.shp DEPARTAMENTOS_inei_geogpsperu_suyopomalia.dbf
+  chmod a-x build/DEPARTAMENTOS_inei_geogpsperu_suyopomalia.*
+fi
+
+geo2topo -q 1e5 -n districts=<( \
+    shp2json -n build/DISTRITOS_inei_geogpsperu_suyopomalia.shp \
+      | ndjson-filter '!/000$/.test(d.properties.UBIGEO)' \
+      | ndjson-map '(d.id = d.properties.UBIGEO, delete d.properties, d)') \
+  | toposimplify -f -s 1e-7 \
+  | topomerge provinces=districts -k 'd.id.slice(0, 4)' \
+  | topomerge departments=districts -k 'd.id.slice(0, 2)' \
+  | node ./properties.js \
+  > districts-100k.json
+
+geo2topo -q 1e5 -n provinces=<( \
+    shp2json -n build/PROVINCIAS_inei_geogpsperu_suyopomalia.shp \
+      | ndjson-filter '!/000$/.test(d.properties.IDPROV)' \
+      | ndjson-map '(d.id = d.properties.IDPROV, d.properties = {name: d.properties.NOMBPROV}, d)') \
+  | toposimplify -f -s 1e-7 \
+  | topomerge departments=provinces -k 'd.id.slice(0, 2)'\
+  | node ./propertiesDep.js \
+  > provinces-100k.json
+
+geo2topo -q 1e5 -n departments=<( \
+    shp2json -n build/DEPARTAMENTOS_inei_geogpsperu_suyopomalia.shp \
+      | ndjson-filter '!/000$/.test(d.properties.CCDD)' \
+      | ndjson-map '(d.id = d.properties.CCDD, d.properties = {name: d.properties.NOMBDEP}, d)') \
+  | toposimplify -f -s 1e-7 \
+  > departments-100k.json
+

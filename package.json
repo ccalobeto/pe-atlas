@@ -1,0 +1,36 @@
+{
+  "name": "pe-atlas",
+  "version": "1.0.1",
+  "description": "Pre-built TopoJSON from Peru",
+  "license": "MIT",
+  "keywords": [
+    "topojson",
+    "geojson",
+    "shapefile",
+    "peru"
+  ],
+  "author": {
+    "name": "Carlos León",
+    "url": "https://github.com/ccalobeto/pe-atlas.git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ccalobeto/pe-atlas.git"
+  },
+  "files": [
+    "*-100k.json"
+  ],
+  "scripts": {
+    "prepublishOnly": "bash prepublish",
+    "postpublish": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "d3-dsv": "^3.0.1",
+    "d3-geo-projection": "^4.0.0",
+    "ndjson-cli": "^0.3.1",
+    "shapefile": "^0.6.6",
+    "topojson-client": "^3.1.0",
+    "topojson-server": "^3.0.1",
+    "topojson-simplify": "^3.0.3"
+  }
+}
