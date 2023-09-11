@@ -5,19 +5,19 @@ mkdir -p build
 
 if [ ! -f build/DISTRITOS_inei_geogpsperu_suyopomalia.shp ]; then
 #  curl -o build/cb_2017_us_county_5m.zip 'https://www2.census.gov/geo/tiger/GENZ2017/shp/cb_2017_us_county_5m.zip'
-  unzip -od build build/DISTRITOS_inei_geogpsperu_suyopomalia.zip DISTRITOS_inei_geogpsperu_suyopomalia.shp DISTRITOS_inei_geogpsperu_suyopomalia.dbf
+  unzip -od build DISTRITOS_inei_geogpsperu_suyopomalia.zip DISTRITOS_inei_geogpsperu_suyopomalia.shp DISTRITOS_inei_geogpsperu_suyopomalia.dbf
   chmod a-x build/DISTRITOS_inei_geogpsperu_suyopomalia.*
 fi
 
 if [ ! -f build/PROVINCIAS_inei_geogpsperu_suyopomalia.shp ]; then
 #  curl -o build/cb_2017_us_state_5m.zip 'https://www2.census.gov/geo/tiger/GENZ2017/shp/cb_2017_us_state_5m.zip'
-  unzip -od build build/PROVINCIAS_inei_geogpsperu_suyopomalia.zip PROVINCIAS_inei_geogpsperu_suyopomalia.shp PROVINCIAS_inei_geogpsperu_suyopomalia.dbf
+  unzip -od build PROVINCIAS_inei_geogpsperu_suyopomalia.zip PROVINCIAS_inei_geogpsperu_suyopomalia.shp PROVINCIAS_inei_geogpsperu_suyopomalia.dbf
   chmod a-x build/PROVINCIAS_inei_geogpsperu_suyopomalia.*
 fi
 
 if [ ! -f build/DEPARTAMENTOS_inei_geogpsperu_suyopomalia.shp ]; then
 #  curl -o build/cb_2017_us_nation_5m.zip 'https://www2.census.gov/geo/tiger/GENZ2017/shp/cb_2017_us_nation_5m.zip'
-  unzip -od build build/DEPARTAMENTOS_inei_geogpsperu_suyopomalia.zip DEPARTAMENTOS_inei_geogpsperu_suyopomalia.shp DEPARTAMENTOS_inei_geogpsperu_suyopomalia.dbf
+  unzip -od build DEPARTAMENTOS_inei_geogpsperu_suyopomalia.zip DEPARTAMENTOS_inei_geogpsperu_suyopomalia.shp DEPARTAMENTOS_inei_geogpsperu_suyopomalia.dbf
   chmod a-x build/DEPARTAMENTOS_inei_geogpsperu_suyopomalia.*
 fi
 

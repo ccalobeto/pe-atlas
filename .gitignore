@@ -1,3 +1,4 @@
 build/
 node_modules
 *-100k.json
+*.zip

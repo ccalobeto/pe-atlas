@@ -5,3 +5,4 @@ prepublish
 *.js
 *-lock.json
 *.lock
+*.zip
