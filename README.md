@@ -2,9 +2,11 @@
 
 This repository provides a convenient redistribution of the [Perú cartographic boundary shapefiles](https://www.geogpsperu.com/), 2022 edition as vector data. 
 
+This repo is **deprecated**. See a new version [here](https://github.com/ccalobeto/latam-atlas).
+
 ### Usage
 
-Yo can see an interactive example in [Observable notebook](https://observablehq.com/d/74241e5a73f974d7?collection=@ccalobeto/peru-insights)
+You can see an interactive example in [Observable notebook](https://observablehq.com/d/74241e5a73f974d7?collection=@ccalobeto/peru-insights)
 
 
 
